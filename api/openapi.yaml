@@ -1,0 +1,77 @@
+openapi: 3.0.0
+info:
+  title: WebAPI Directory
+  description: WebAPI Directory for MicroServices TechReady POC
+  termsOfService: Free
+  contact:
+    name: Ashish Mathur
+    url: https://www.pyramidci.com
+    email: ashish.mathur@pyramidconsultinginc.com
+  license:
+    name: MIT
+    url: http://opensource.org/licenses/MIT
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/mathur-ashish/ProductsPrice/1.0.0
+  description: SwaggerHub API Auto Mocking
+- url: https://virtserver.swaggerhub.com/mathur-ashish/Products/1.0.0
+  description: SwaggerHub API Auto Mocking
+- url: https://localhost:8080
+  description: Local  Development Test Server
+- url: https://someazureserver.com
+  description: Azure Server for later
+security:
+- APIKEY: []
+paths:
+  /get:
+    get:
+      description: Add a new product inventory at product/category/option level
+      operationId: getWebAPIGET
+      parameters:
+      - name: WebAPIName
+        in: query
+        description: Name of the web api
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: Category
+      responses:
+        "200":
+          description: Web API Details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebAPI'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+                example: Bad request reason
+                x-content-type: application/json
+        "404":
+          description: Web API Not Found
+      x-swagger-router-controller: Default
+components:
+  schemas:
+    WebAPI:
+      type: object
+      properties:
+        Server:
+          type: string
+        Port:
+          type: integer
+        BaseURL:
+          type: string
+      example:
+        Server: localhost
+        Port: 8080
+        BaseURL: /
+  securitySchemes:
+    APIKEY:
+      type: apiKey
+      name: APIKEY
+      in: header
