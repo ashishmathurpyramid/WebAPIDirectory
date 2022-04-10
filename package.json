@@ -4,6 +4,7 @@
   "description": "WebAPI Directory for MicroServices TechReady POC",
   "main": "index.js",
   "scripts": {
+  "prestart": "npm install",
 	"start": "node index.js"
   },
   "keywords": [
