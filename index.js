@@ -4,7 +4,6 @@ var path = require('path');
 var http = require('http');
 
 var oas3Tools = require('oas3-tools');
-var serverPort = 8000;
 
 // swaggerRouter configuration
 var options = {
@@ -12,7 +11,7 @@ var options = {
         controllers: path.join(__dirname, './controllers')
     },
 };
-
+var serverPort = normalizePort(process.env.PORT || '8000');
 var expressAppConfig = oas3Tools.expressAppConfig(path.join(__dirname, 'api/openapi.yaml'), options);
 var app = expressAppConfig.getApp();
 
@@ -22,3 +21,22 @@ http.createServer(app).listen(serverPort, function () {
     console.log('Swagger-ui is available on http://localhost:%d/docs', serverPort);
 });
 
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+ function normalizePort(val) {
+    var port = parseInt(val, 10);
+  
+    if (isNaN(port)) {
+      // named pipe
+      return val;
+    }
+  
+    if (port >= 0) {
+      // port number
+      return port;
+    }
+  
+    return false;
+  }

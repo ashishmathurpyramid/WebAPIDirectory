@@ -12,13 +12,9 @@ info:
     url: http://opensource.org/licenses/MIT
   version: 1.0.0
 servers:
-- url: https://virtserver.swaggerhub.com/mathur-ashish/ProductsPrice/1.0.0
-  description: SwaggerHub API Auto Mocking
-- url: https://virtserver.swaggerhub.com/mathur-ashish/Products/1.0.0
-  description: SwaggerHub API Auto Mocking
 - url: https://localhost:8080
   description: Local  Development Test Server
-- url: https://someazureserver.com
+- url: https://webapidirectory.azurewebsites.net
   description: Azure Server for later
 security:
 - APIKEY: []
