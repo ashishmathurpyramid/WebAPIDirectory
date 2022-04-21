@@ -15,9 +15,7 @@ servers:
 - url: https://localhost:8080
   description: Local  Development Test Server
 - url: https://webapidirectory.azurewebsites.net
-  description: Azure Server for later
-security:
-- APIKEY: []
+  description: Azure Server
 paths:
   /get:
     get:
@@ -66,8 +64,3 @@ components:
         Server: localhost
         Port: 8080
         BaseURL: /
-  securitySchemes:
-    APIKEY:
-      type: apiKey
-      name: APIKEY
-      in: header
