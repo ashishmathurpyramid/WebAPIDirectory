@@ -15,9 +15,6 @@
   "dependencies": {
     "connect": "^3.2.0",
     "js-yaml": "^3.3.0",
-    "oas3-tools": "^2.2.3",
-    "@azure/msal-node": "file:../../../../lib/msal-node",
-    "jsonwebtoken": "^8.5.1",
-    "jwks-rsa": "^1.8.1"
+    "oas3-tools": "^2.2.3"
   }
 }
